@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package neon.training.v1;
+
+service TrainingActors {
+  rpc Connect(stream ActorToLearner) returns (stream LearnerToActor);
+}
+
+message ActorHello {
+  string group_id = 1;
+  uint32 capacity = 2;
+}
+
+message Transition {
+  string snake_id = 1;
+  string scenario = 2;
+  bytes state = 3;
+  uint32 action = 4;
+  float reward = 5;
+  bytes next_state = 6;
+  bool terminal = 7;
+  bool opportunity = 8;
+  bool claimed = 9;
+  bool approach_miss = 10;
+  string episode_id = 11;
+  string power_up_kind = 12;
+  RewardComponents reward_components = 13;
+  bool rare_food_claimed = 14;
+  bool objective_captured = 15;
+  bool bounty_kill = 16;
+  string death_cause = 17;
+}
+
+message RewardComponents {
+  float step = 1;
+  float survival = 2;
+  float food_approach = 3;
+  float food_claim = 4;
+  float power_up_approach = 5;
+  float power_up_claim = 6;
+  float kill = 7;
+  float death = 8;
+  float win = 9;
+  float zone_positioning = 10;
+  float objective_approach = 11;
+  float objective_capture = 12;
+  float bounty_kill = 13;
+  float rare_food_claim = 14;
+}
+
+message TransitionBatch {
+  string actor_id = 1;
+  uint64 sequence = 2;
+  uint64 policy_version = 3;
+  repeated Transition transitions = 4;
+}
+
+message ActorToLearner {
+  oneof payload {
+    ActorHello hello = 1;
+    TransitionBatch batch = 2;
+  }
+}
+
+message TensorData {
+  string name = 1;
+  repeated uint32 shape = 2;
+  repeated float values = 3 [packed = true];
+}
+
+message PolicyWeights {
+  string snake_id = 1;
+  uint64 version = 2;
+  float epsilon = 3;
+  repeated TensorData tensors = 4;
+  uint64 environment_steps = 5;
+  uint64 survival_steps = 6;
+  uint64 powerup_steps = 7;
+  uint64 battle_steps = 8;
+  uint64 safe_zone_steps = 9;
+  uint64 hazard_steps = 10;
+  uint64 objective_steps = 11;
+  uint64 series_steps = 12;
+}
+
+message SnakeRosterEntry {
+  string snake_id = 1;
+  string name = 2;
+  string color = 3;
+  string accent = 4;
+}
+
+message StartJob {
+  string experiment_id = 1;
+  uint32 actor_count = 2;
+  uint64 step_budget = 3;
+  uint32 seed = 4;
+  repeated PolicyWeights policies = 5;
+  uint32 training_spec_version = 6;
+  uint32 observation_size = 7;
+  repeated SnakeRosterEntry roster = 8;
+  uint32 battle_size = 9;
+}
+
+message BatchAck {
+  uint64 sequence = 1;
+}
+
+message StopJob {
+  string reason = 1;
+}
+
+message LearnerToActor {
+  oneof payload {
+    StartJob start = 1;
+    PolicyWeights policy = 2;
+    BatchAck ack = 3;
+    StopJob stop = 4;
+  }
+}

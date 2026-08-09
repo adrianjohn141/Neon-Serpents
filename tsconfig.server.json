@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist-server",
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "lib": ["ES2022", "DOM"]
+  },
+  "include": ["src/server/**/*.ts", "src/game/**/*.ts"],
+  "exclude": ["**/*.test.ts", "src/game/useAiWorker.ts", "src/game/worker-protocol.ts", "src/game/server-models.ts"]
+}

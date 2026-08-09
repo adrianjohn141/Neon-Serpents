@@ -1,0 +1,40 @@
+{
+  "name": "neon-serpents",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 8193",
+    "build": "next build ",
+    "start": "next start -p 8193",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "train:desktop": "tsx src/desktop/train.ts",
+    "benchmark:ai": "tsx src/desktop/benchmark.ts",
+    "build:actors": "tsc -p tsconfig.server.json"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.7.15",
+    "idb-keyval": "^6.3.0",
+    "next": "16.3.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "fake-indexeddb": "^6.2.5",
+    "tsx": "^4.23.11",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "optionalDependencies": {
+    "@tensorflow/tfjs-node": "^4.22.0"
+  },
+  "overrides": {
+    "adm-zip": "0.6.0",
+    "tar": "7.5.22"
+  }
+}

@@ -1,0 +1,32 @@
+node_modules/
+.next/
+out/
+coverage/
+*.log
+.env*
+!.env.example
+!.env.docker.example
+.DS_Store
+*.tsbuildinfo
+# Generated models, checkpoints, backups, and evaluation output stay local.
+artifacts/
+dist-server/
+server/.pytest_cache/
+server/**/__pycache__/
+
+# Local credentials, certificates, and generated databases must never be public.
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.zst
+
+# Local coding-agent instructions are workspace-specific, not product source.
+AGENTS.md
+CLAUDE.md
