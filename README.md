@@ -227,6 +227,10 @@ report held-out confidence intervals, not only a single training curve.
 
 ## License
 
-No open-source license is currently included. Public visibility does not itself
-grant reuse rights; add a license before accepting outside reuse or
-contributions.
+This project is released under the [MIT License](LICENSE). You may use it for
+personal or commercial projects, copy it, modify it, redistribute it, and
+publish derivative works. Keep the copyright and license notice with copies or
+substantial portions of the code.
+
+The MIT license applies to this repository's code. Third-party packages and
+container images retain their own licenses, which must be respected separately.

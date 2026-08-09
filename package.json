@@ -1,6 +1,7 @@
 {
   "name": "neon-serpents",
   "version": "1.0.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev -p 8193",
