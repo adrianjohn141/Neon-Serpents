@@ -9,7 +9,7 @@ argon2-cffi==25.1.0
 cryptography==45.0.6
 pydantic-settings==2.10.1
 numpy==2.3.2
-grpcio==1.74.0
+grpcio==1.83.0
 grpcio-tools==1.74.0
 protobuf==6.32.0
 zstandard==0.24.0
