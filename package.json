@@ -16,7 +16,7 @@
   "dependencies": {
     "@tensorflow/tfjs": "^4.22.0",
     "@grpc/grpc-js": "^1.13.4",
-    "@grpc/proto-loader": "^0.7.15",
+    "@grpc/proto-loader": "^0.8.1",
     "idb-keyval": "^6.3.0",
     "next": "16.3.0",
     "react": "19.2.4",
