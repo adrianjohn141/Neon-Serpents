@@ -1,6 +1,6 @@
 FROM node:22-bookworm-slim AS node-runtime
 
-FROM python:3.12-slim-bookworm
+FROM python:3.14-slim-bookworm
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
 WORKDIR /app
 COPY --from=node-runtime /usr/local/bin/node /usr/local/bin/node
