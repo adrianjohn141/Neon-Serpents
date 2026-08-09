@@ -28,7 +28,7 @@
     "fake-indexeddb": "^6.2.5",
     "tsx": "^4.23.11",
     "typescript": "^5.9.0",
-    "vitest": "^3.2.0"
+    "vitest": "^4.1.10"
   },
   "optionalDependencies": {
     "@tensorflow/tfjs-node": "^4.22.0"
