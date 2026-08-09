@@ -7,7 +7,7 @@ rq==2.6.0
 boto3==1.40.21
 argon2-cffi==25.1.0
 cryptography==45.0.6
-pydantic-settings==2.10.1
+pydantic-settings==2.14.2
 numpy==2.3.2
 grpcio==1.74.0
 grpcio-tools==1.74.0
